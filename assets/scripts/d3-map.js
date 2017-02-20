@@ -2,7 +2,7 @@
 // d3 map code goes here
 
 
-var h = 1300,
+var height = 1300,
     w = 1000;
 
 // standard Mercator projection is used because graph presents 2D map when it is actually 3D object
@@ -13,9 +13,16 @@ var projection = d3.geo.mercator()
 var path = d3.geo.path()
     .projection(projection);
 
+var color_domain = [1000, 5000, 10000, 50000]
+var ext_color_domain = [0, 1000, 5000, 10000, 50000]
+var legend_labels = ["< 1000", "1000 - 5000", "5000 - 10 000", "10 000 - 50 000", "> 50 000"]
+var color = d3.scale.threshold()
+.domain(color_domain)
+.range(["#33D33F", "#9DF1A4", "#F9F66F", "#ef8010", "#ef1e0f"]);
+
 // set-up svg canvas, grabs div tag and appends svg
 var svg = d3.select("#svg1").append("svg")
-    .attr("height", h)
+    .attr("height", height)
     .attr("width", w);
 
 
@@ -48,8 +55,8 @@ d3.json("countries.geo.json", function(error, data) {
 
         // calculate bounds, scale and transform
         var b = path.bounds(data),
-            s = .95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / h),
-            t = [(w - s * (b[1][0] + b[0][0])) / 2, (h - s * (b[1][1] + b[0][1])) / 2];
+            s = .95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / height),
+            t = [(w - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
 
         projection.scale(s)
             .translate(t);
@@ -81,6 +88,32 @@ d3.json("countries.geo.json", function(error, data) {
                  .style("opacity", 0);
           });
 
+
+
     });
 
+
+
+
 });
+
+var legend = svg.selectAll("g.legend")
+  .data(ext_color_domain)
+  .enter().append("g")
+  .attr("transform", "translate(-10,-505)")
+  .attr("class", "legend");
+
+  var ls_w = 30, ls_h = 30;
+
+  legend.append("rect")
+  .attr("x", 20)
+  .attr("y", function(d, i){ return height - (i*ls_h) - 2*ls_h;})
+  .attr("width", ls_w)
+  .attr("height", ls_h)
+  .style("fill", function(d, i) { return color(d); })
+  .style("opacity", 0.8);
+
+  legend.append("text")
+  .attr("x", 70)
+  .attr("y", function(d, i){ return height - (i*ls_h) - ls_h - 4;})
+  .text(function(d, i){ return legend_labels[i]; });
