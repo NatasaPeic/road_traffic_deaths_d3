@@ -1,3 +1,4 @@
+
 // d3 map code goes here
 
 
@@ -29,7 +30,7 @@ var div = d3.select("body")
 d3.json("../assets/data/countries.geo.json", function(error, data) {
 
     //d3.csv("../data/data.csv", function(error, csv) {
-	d3.csv("../assets/data/road_traffic.csv", function(error, json) {
+	d3.csv("../assets/data/data.csv", function(error, json) {
 
 
         // assigning a variable world to be able to access features from geo.json
