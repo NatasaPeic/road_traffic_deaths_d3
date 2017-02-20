@@ -14,7 +14,7 @@ li {
  }
 
 .text {
-    font-size: 21px;
+    font-size: 18px;
     line-height: 35px;
     text-align: justify;
     margin-top: 40px;
@@ -32,6 +32,10 @@ svg {
   line-height: 25px;
   }
 
+  .navbar-nav > li {
+      float: left;
+      text-decoration: none;
+  }
 
 
 
