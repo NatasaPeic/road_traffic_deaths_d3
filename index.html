@@ -1,22 +1,201 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Road Traffic deaths datasets</title>
 
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+
+      <link rel="stylesheet" href="assets/styles/one-page-wonder.css" media="screen" title="no title" charset="utf-8">
+
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+
+      <script type="text/javascript" src="https://d3js.org/d3.v3.min.js"></script>
+
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <!-- Navigation -->
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+       <div class="container">
+           <!-- Brand and toggle get grouped for better mobile display -->
+           <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                   <span class="sr-only">Toggle navigation</span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">Data Visualization with d3</a>
+           </div>
+           <!-- Collect the nav links, forms, and other content for toggling -->
+           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav">
+                   <li>
+                       <a href="https://d3js.org/" target="_blank">About</a>
+                   </li>
+                   <li>
+                       <a href="https://github.com/d3/d3/wiki/Tutorials" target="_blank">Tutorials</a>
+                   </li>
+                   <li>
+                       <a href="https://github.com/NatasaPeic/road_traffic_deaths_d3" target="_blank">Fork</a>
+                   </li>
+
+               </ul>
+           </div>
+           <!-- /.navbar-collapse -->
+       </div>
+       <!-- /.container -->
+   </nav>
+
+
+   <!-- Full Width Image Header -->
+ <header class="header-image">
+     <div class="headline">
+         <div class="container">
+             <h2>Data-Driven Documents</h2>
+             <h2></h2>
+         </div>
+     </div>
+ </header>
+
+<br>
+<br>
+<br>
+ <div class="container">
+
+
+
+     <br>
+
+     <!-- Second Featurette -->
+     <div class="featurette" >
+
+
+         <h2 class="featurette-heading">Global status report on road safety 2013</h2>
+
+         <br>
+
+         <h4 class="text">
+          The Global status report on road safety 2013 [<a href="http://www.who.int/gho/road_safety/mortality/traffic_deaths_number/en/">Global Health Observatory (GHO) data</a>] presents information on road safety from 182 countries, accounting for almost 99% of the world’s population. About 1.25 million people die each year on the world's roads and between 20 and 50 million sustain non-fatal injuries. Young adults aged between 15 and 44 years account for 59% of global road traffic deaths.
+        </h4>
+
+          <h2 class="featurette-heading">Road Safety</h2>
+
+           <h4 class="text">
+
+          Only 28 countries, covering 7% of the world’s population, have comprehensive road safety laws on five key risk factors: drinking and driving, speeding, and failing to use motorcycle helmets, seat-belts, and child restraints.
+
+          Only 47 countries, representing 13% of the world’ population, have laws that meet best practice on urban speed. This includes a national urban maximum speed limit of 50 km/h, andlocal authorities that have the power to reduce this limit, when necessary, to ensure safe speeds locally.
+        </h4>
+
+          <h2 class="featurette-heading">Vulnerable road users</h2>
+
+         <h4 class="text">
+           90% of road traffic deaths occur in low- and middle-income countries
+           These countries have only 54% of the world’s registered vehicles.
+
+           Pedestrians, cyclists, and riders of motorized 2-wheelers and their passengers are collectively known as "vulnerable road users". The proportion of road traffic deaths in vulnerable road users is greater in low-income countries than in high-income countries.
+
+         </h4>
+
+         <h2 class="featurette-heading">Alchohol use</h2>
+
+         <h4 class="text">
+           Above a blood-alcohol concentration (BAC) of 0.05 g/dl, the risk of road traffic crash increases dramatically. Only 34 countries, representing 2.1 billion people, have national drink–driving laws that meet best practice. ¬– WHO recommends a BAC of less than or equal to 0.05 g/dl. a lower limit of less than or equal to 0.02 g/dl for young and novice drivers.
+         </h4>
+
+          <h2 class="featurette-heading">Estimated number of road traffic deaths</h2>
+
+
+
+
+          <div id="svg1">
+           <script src="assets/scripts/d3-map.js"> </script>
+         </div>
+
+         <h2 class="featurette-heading">What can we do?</h2>
+
+         <h4 class="text">
+
+           <ul>
+             <li>Wearing a good-quality helmet can reduce the risk of death from a road crash by 40%
+               <br>
+               <br>
+             </li>
+             <p>Wearing a good-quality helmet can reduce the risk of severe injury by over 70%. Only 44 countries (representing 17% of the world’s population) have motorcycle helmet laws that meet best practice. These laws apply to all drivers and passengers, all roads and engine types, require the helmet to be fastened, and make reference to a particular helmet standard.</p>
+
+             <br>
+             <br>
+
+
+
+             <li>Wearing a seat-belt reduces the risk of death among front-seat passengers by 40–65%
+               <br>
+               <br>
+
+
+             </li>
+              <p>Wearing a seat-belt can also reduce deaths among rear-seat car occupants by 25–75%. Some 105 countries, representing 67% of the world’s population, have seat-belt laws that cover both front and rear seat occupants, in line with best practice.</p>
+             <br>
+             <br>
+
+             <li>Infant seats, child seats and booster seats can reduce child deaths by 54–80% in the event of a crash
+             <br>
+             <br>
+              </li>
+               <p>More than half of all countries have implemented a law on child-restraint use in cars. Only 53 countries, representing 1.2 billion people, have a child restraint law that meets best practice. Best practice laws apply age,weight, orheight) restrictions on children sitting in the front seat, and make the national child restraint law based on age, height or weight.</p>
+
+               <br>
+               <br>
+
+             <li>Prompt, good-quality pre-hospital care can save the lives of many people injured in road traffic crashes
+               <br>
+               <br>
+
+             </li>
+               <p>The most efficient way to activate an emergency response is through a universal, centralized access number with central dispatch. Universal access number to activate emergency service response exist in 116 countries.</p>
+             <br>
+             <br>
+
+
+             <li>Vehicles sold in 80% of all countries worldwide fail to meet basic safety standards
+               <br>
+               <br>
+
+             </li>
+               <p>The safety of vehicles plays a critical role both in averting crashes and reducing the likelihood of serious injury in the event of a crash. The UN World Forum for Harmonization provides 7 key regulations that help ensure safe vehicles but only 40 countries have adopted all 7 regulations, and 35 of these are high-income countries.</p>
+
+
+
+           </ul>
+
+         </h4>
+
+
+
+
+
+     </div>
+
+     <hr class="featurette-divider">
+
+
+
+
+
+     <!-- Footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4>Copyright &copy; Created by <a href="https://www.linkedin.com/in/natasa-peic" target="_blank">Natasa Peic</a> - Software Engineer @<a href="http://www.sgt-inc.com/">SGT</a>/<a href="https://www.volpe.dot.gov/">Volpe</a></h4>
+                    </div>
+                </div>
+            </footer>
+
+</div>
+
     </body>
 </html>
