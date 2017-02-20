@@ -27,10 +27,10 @@ var div = d3.select("body")
 
 
 //data selected for contributing countries from https://raw.githubusercontent.com/NatasaPeic/world.geo.json/master/countries.geo.json
-d3.json("../../assets/data/countries.geo.json", function(error, data) {
+d3.json("countries.geo.json", function(error, data) {
 
     //d3.csv("../data/data.csv", function(error, csv) {
-	d3.csv("../../assets/data/data.csv", function(error, csv) {
+	d3.csv("data.csv", function(error, csv) {
 
 
         // assigning a variable world to be able to access features from geo.json
