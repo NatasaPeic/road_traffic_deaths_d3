@@ -2,19 +2,19 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 
+
 div.tooltip {
    	position: absolute;
   	text-align: center;
   	width: 160px;
   	height: 50px;
-  	padding-top: 8px;
+    padding-top: 12px;
   	font: 15px sans-serif;
-  	background: #ffffca;
+  	background: #F4F6FF;
   	color:#000023;
   	font-weight: bold;
-  	border: 0px;
-  	border-radius: 8px;
   	pointer-events: none;
+    border: 1px darkgrey solid;
   }
 
   .legend rect {
