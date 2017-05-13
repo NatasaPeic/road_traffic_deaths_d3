@@ -79,7 +79,7 @@ d3.json("countries.geo.json", function(error, data) {
       	   .duration(200)
            .style("opacity", 0.9);
 
-           div.text(d.name + " " + d.p + "%")
+           div.text(d.name + ": " + d.p)
            .style("left", (d3.event.pageX) + "px")
            .style("top", (d3.event.pageY - 28) + "px");
   	})
