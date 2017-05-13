@@ -1,7 +1,4 @@
 
-// d3 map code goes here
-
-
 var height = 1300,
     w = 1000;
 
@@ -55,7 +52,7 @@ d3.json("countries.geo.json", function(error, data) {
 
         // calculate bounds, scale and transform
         var b = path.bounds(data),
-            s = .95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / height),
+            s = 0.95 / Math.max((b[1][0] - b[0][0]) / w, (b[1][1] - b[0][1]) / height),
             t = [(w - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
 
         projection.scale(s)
@@ -67,27 +64,37 @@ d3.json("countries.geo.json", function(error, data) {
             .append("path")
             .style("fill", function(d) { return (d.p===0) ? '#fff' : (d.p>0 && d.p<1000) ? '#33D33F' : (d.p>1000 && d.p<5000) ? '#9DF1A4' :
             (d.p>5000 && d.p<10000) ? '#F9F66F' :
-            (d.p>10000 && d.p<50000) ? '#ef8010' : (d.p>50000) ? '#ef1e0f' : '#fff' })
+            (d.p>10000 && d.p<50000) ? '#ef8010' : (d.p>50000) ? '#D55548' : '#fff' })
 
-            .style("stroke", "black")
+            .style("stroke", "grey")
             .style("stroke-width", "1px")
             .attr("d", path)
             .on("mouseover", function(d) {
+
+              var currentState = this;
+              d3.select(this).style('fill-opacity', 1);
+
+
               	div.transition()
       	   .duration(200)
-           .style("opacity", .9)
+           .style("opacity", 0.9);
 
-           div.text(d.name + ": " + d.p )
+           div.text(d.name + ": " + d.p)
            .style("left", (d3.event.pageX) + "px")
-           .style("top", (d3.event.pageY - 28) + "px")
+           .style("top", (d3.event.pageY - 28) + "px");
   	})
       	// fade out tooltip on mouse out
-          .on("mouseout", function(d) {
-              div.transition()
-                 .duration(500)
-                 .style("opacity", 0);
-          });
+            .on("mouseout", function(d) {
 
+              d3.selectAll('path')
+                      .style({
+                          'fill-opacity':0.7
+                      });
+
+            div.transition()
+               .duration(500)
+               .style("opacity", 0);
+        });
 
 
     });
